@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>用户名：<input type="text" id="username"></p>
+
+    <script>
+        // 声明 handle 函数
+        function handle() {
+
+        }
+        
+        // 1.获得元素
+        const ipt = document.querySelector('input');
+        // 2.绑定事件
+        ipt.addEventListener('blur', ()=>{
+            let un = this.value;
+            // 向服务端发送请求，监测用户名是否存在
+        });
+
+    </script>
+    
+</body>
+</html>

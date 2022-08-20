@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin="anonymous"
+      src="https://cdn.bootcdn.net/ajax/libs/axios/1.0.0-alpha.1/axios.js"
+    ></script>
+  </head>
+  <body>
+    <button>GET</button>
+    <button>POST</button>
+    <button>axios</button>
+
+    <script>
+      const btns = document.querySelectorAll("button");
+      axios.defaults.baseURL = "http://127.0.0.1:8000";
+
+      btns[0].addEventListener("click", () => {
+        // GET 请求
+        axios
+          .get("/axios-server", {
+            // url
+            params: {
+              id: 100,
+              vip: 7,
+            },
+            // 请求头信息
+            headers: {
+              name: "bluekk",
+              // age: 20000
+            },
+          })
+          .then((value) => {
+            console.log(value);
+          });
+      });
+      btns[1].onclick = () => {
+        axios.post(
+          "/axios-server",
+          {
+            data: {
+              username: "timu",
+              password: "timu",
+            },
+          },
+          {
+            // 参数
+            params: {
+              id: 200,
+              vip: 10,
+            },
+            // 请求头
+            headers: {
+              height: 3,
+              weight: 300,
+            },
+          }
+        );
+      };
+
+      btns[2].onclick = () => {
+        axios({
+          method: "POST",
+          url: "/axios-server",
+          params: {
+            vip: 10,
+            level: 30,
+          },
+          headers: {
+            a: 100,
+            b: 200,
+          },
+          data: {
+            username: "yuanguyulong",
+          },
+        }).then((response) => {
+          console.log(response);
+        });
+      };
+    </script>
+  </body>
+</html>
